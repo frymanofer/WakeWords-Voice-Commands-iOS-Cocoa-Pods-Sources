@@ -1,7 +1,13 @@
 //ios/KeyWordRNBridge.mm
 
-#import <KeyWordDetection/KeyWordDetection-Swift.h>
 #import "KeyWordRNBridge.h"
+
+#if __has_include("KeyWordDetection-Swift.h")
+#import "KeyWordDetection-Swift.h"          // when building the framework itself
+#else
+#import <KeyWordDetection/KeyWordDetection-Swift.h>  // when consumed via CocoaPods
+#endif
+
 #import <React/RCTLog.h>
 // #import <React/RCTEventEmitter.h>
 //#import "KeyWordsDetection.h" // Import your KeyWordsDetection library header
