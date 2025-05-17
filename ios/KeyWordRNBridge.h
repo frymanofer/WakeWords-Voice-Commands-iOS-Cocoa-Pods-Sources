@@ -1,4 +1,5 @@
 #import <React/RCTEventEmitter.h>
+#import <React/RCTBridge.h>
 #import <KeyWordDetection/KeyWordDetection-Swift.h>
 
 @interface KeyWordRNBridge : RCTEventEmitter <KeywordDetectionRNDelegate>
