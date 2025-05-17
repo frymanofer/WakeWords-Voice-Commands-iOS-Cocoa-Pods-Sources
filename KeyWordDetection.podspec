@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.cocoapods_version   = '>= 1.10.0'
   s.name            = 'KeyWordDetection'
   # s.module_name     = 'KeyWordDetection'
-  s.version         = '1.0.31'
+  s.version         = '1.0.32'
   s.summary         = 'Wake-word detection for React Native'
   s.description  = <<-DESC
                     A React Native module for wake word detection .
@@ -39,7 +39,12 @@ Pod::Spec.new do |s|
 
   s.dependency 'onnxruntime-objc', '~> 1.20.0'
   s.dependency 'React-Core'
-  
+  # 👇 Add these for React Native headers
+  s.dependency 'React-Core'
+  s.dependency 'React-Core/Bridge'
+  s.dependency 'React-Core/DevSupport' # if needed
+
+
   s.pod_target_xcconfig = {
     'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Headers/Public/React-Core"'
   }
