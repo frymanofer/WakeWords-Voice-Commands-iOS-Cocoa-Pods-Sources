@@ -1,7 +1,6 @@
 //ios/KeyWordRNBridge.mm
 
 #import "KeyWordRNBridge.h"
-#import <React/RCTBridge.h>
 #import <React/RCTLog.h>
 #import <React/RCTEventEmitter.h>
 //#import "KeyWordsDetection.h" // Import your KeyWordsDetection library header
@@ -53,7 +52,7 @@
 
 @end
 
-@interface KeyWordRNBridge () <RCTBridgeModule>
+@implementation KeyWordRNBridge
 
 @property (nonatomic, strong) NSMutableDictionary *instances;
 

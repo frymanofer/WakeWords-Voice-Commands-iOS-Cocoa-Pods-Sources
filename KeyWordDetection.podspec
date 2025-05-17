@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
   s.requires_arc        = true
   s.platform        = :ios, '13.5'
   s.dependency 'React-Core'
-  s.preserve_paths      = 'docs', 'CHANGELOG.md', 'LICENSE', 'package.json', 'KeyWordDetection.ios.js'
+
+#  s.preserve_paths      = 'docs', 'CHANGELOG.md', 'LICENSE', 'package.json', 'KeyWordDetection.ios.js'
   s.source_files = [
     'ios/*.{h,m,mm,swift}'
   ]
