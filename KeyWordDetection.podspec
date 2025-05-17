@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.cocoapods_version   = '>= 1.10.0'
   s.name            = 'KeyWordDetection'
   # s.module_name     = 'KeyWordDetection'
-  s.version         = '1.0.28'
+  s.version         = '1.0.29'
   s.summary         = 'Wake-word detection for React Native'
   s.description  = <<-DESC
                     A React Native module for wake word detection .
@@ -39,8 +39,6 @@ Pod::Spec.new do |s|
 
   s.dependency 'onnxruntime-objc', '~> 1.20.0'
   s.dependency 'React-Core'
-  s.dependency 'React-Core/RCTBridge'
-  s.dependency 'React-Core/RCTEventEmitter'
   
   s.pod_target_xcconfig = {
      'DEFINES_MODULE' => 'YES',
