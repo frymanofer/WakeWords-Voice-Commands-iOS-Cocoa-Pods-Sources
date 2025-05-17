@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   # ─── metadata ───────────────────────────────────────────────────────
   s.name            = 'KeyWordDetection'
-  s.version         = '1.0.53'
+  s.version         = '1.0.54'
   s.summary         = 'Wake-word detection for iOS / React-Native'
   s.description     = 'Static XCFramework + optional React-Native bridge.'
   s.homepage        = 'https://github.com/frymanofer/WakeWords-Voice-Commands-iOS-Cocoa-Pods-Sources'
@@ -43,15 +43,17 @@ Pod::Spec.new do |s|
 
     # Bring in the RN headers & libs
     rb.dependency 'React-Core'
-    rb.dependency 'React'
     # That’s enough;   RCTEventEmitter.h lives **inside** React-Core
     # include path will be <React/RCTEventEmitter.h>
 
     # Allow Swift generated headers to be found by Obj-C
     rb.pod_target_xcconfig = {
       'HEADER_SEARCH_PATHS' =>
-        '$(inherited) $(PODS_ROOT)/Headers/Private/React-Core $(PODS_ROOT)/Headers/Public/React-Core',
-      'DEFINES_MODULE'           => 'YES',
+      '$(inherited) ' \
+      '"$(PODS_CONFIGURATION_BUILD_DIR)/React-Core/React_Core.framework/Headers" ' \
+      '"$(PODS_ROOT)/Headers/Private/React-Core" ' \
+      '"$(PODS_ROOT)/Headers/Public/React-Core"'
+        'DEFINES_MODULE'           => 'YES',
       'CLANG_ENABLE_MODULES'     => 'YES'
     }
   end
