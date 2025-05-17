@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.cocoapods_version   = '>= 1.10.0'
   s.name            = 'KeyWordDetection'
   # s.module_name     = 'KeyWordDetection'
-  s.version         = '1.0.40'
+  s.version         = '1.0.41'
   s.summary         = 'Wake-word detection for React Native'
   s.description  = <<-DESC
                     A React Native module for wake word detection .
