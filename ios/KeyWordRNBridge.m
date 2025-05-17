@@ -1,4 +1,4 @@
-//ios/KeyWordRNBridge.mm
+//ios/KeyWordRNBridge.m
 
 #import "KeyWordRNBridge.h"
 
