@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   # ─── metadata ───────────────────────────────────────────────────────
   s.name            = 'KeyWordDetection'
-  s.version         = '1.0.48'
+  s.version         = '1.0.49'
   s.summary         = 'Wake-word detection for iOS / React-Native'
   s.description     = 'Static XCFramework + optional React-Native bridge.'
   s.homepage        = 'https://github.com/frymanofer/WakeWords-Voice-Commands-iOS-Cocoa-Pods-Sources'
