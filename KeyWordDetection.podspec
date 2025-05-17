@@ -39,7 +39,8 @@ Pod::Spec.new do |s|
 
   s.dependency 'onnxruntime-objc', '~> 1.20.0'
   s.dependency 'React-Core'
-
+  s.dependency 'React-RCTEventEmitter'   # <- gives you the header you import
+  
   s.pod_target_xcconfig = {
     'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Headers/Public/React-Core"'
   }
