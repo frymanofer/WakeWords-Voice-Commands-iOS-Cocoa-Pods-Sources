@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.cocoapods_version   = '>= 1.10.0'
   s.name            = 'KeyWordDetection'
   # s.module_name     = 'KeyWordDetection'
-  s.version         = '1.0.27'
+  s.version         = '1.0.28'
   s.summary         = 'Wake-word detection for React Native'
   s.description  = <<-DESC
                     A React Native module for wake word detection .
@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc        = true
   s.platform        = :ios, '13.5'
-  s.dependency 'React-Core'
 
 #  s.preserve_paths      = 'docs', 'CHANGELOG.md', 'LICENSE', 'package.json', 'KeyWordDetection.ios.js'
   s.source_files = [
@@ -39,6 +38,10 @@ Pod::Spec.new do |s|
   s.resources = 'ios/models/*'
 
   s.dependency 'onnxruntime-objc', '~> 1.20.0'
+  s.dependency 'React-Core'
+  s.dependency 'React-Core/RCTBridge'
+  s.dependency 'React-Core/RCTEventEmitter'
+  
   s.pod_target_xcconfig = {
      'DEFINES_MODULE' => 'YES',
      'SWIFT_INCLUDE_PATHS' => '$(PODS_TARGET_SRCROOT)/ios/KeyWordDetection',
