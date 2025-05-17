@@ -1,54 +1,48 @@
 Pod::Spec.new do |s|
-  s.cocoapods_version   = '>= 1.10.0'
-  s.name            = 'KeyWordDetection'
-  # s.module_name     = 'KeyWordDetection'
-  s.version         = '1.0.41'
-  s.summary         = 'Wake-word detection for React Native'
-  s.description  = <<-DESC
-                    A React Native module for wake word detection .
-                    DESC
-  s.homepage     = "https://github.com/frymanofer/KeywordsDetectionAndroidLibrary.git" # Update with your repo URL
-  s.license      = { :type => "MIT" } # Update if different
-  s.author       = { "Your Name" => "ofer@davoice.io" } # Update with 
+  # ───── high-level metadata ──────────────────────────────────────────
+  s.cocoapods_version    = '>= 1.10.0'
+  s.name                 = 'KeyWordDetection'
+  s.version              = '1.0.44'
+  s.summary              = 'Wake-word detection for React-Native'
+  s.description          = 'A React Native module for on-device wake-word detection.'
+  s.homepage             = 'https://github.com/frymanofer/WakeWords-Voice-Commands-iOS-Cocoa-Pods-Sources'
+  s.license              = { :type => 'MIT' }
+  s.author               = { 'Ofer Fryman' => 'ofer@davoice.io' }
 
-  s.requires_arc        = true
-  s.platform        = :ios, '13.5'
+  s.platform             = :ios, '13.5'
+  s.swift_version        = '5.0'
 
-#  s.preserve_paths      = 'docs', 'CHANGELOG.md', 'LICENSE', 'package.json', 'KeyWordDetection.ios.js'
-  s.source_files = [
-    'ios/*.{h,m,mm,swift}'
-  ]
-  s.vendored_frameworks = 'KeyWordDetection.xcframework'
-  s.resource_bundles = {'KeyWordDetectionPrivacy' => ['ios/Resources/PrivacyInfo.xcprivacy']}
+  # where the spec itself is fetched from
+  s.source               = {
+    :git => 'https://github.com/frymanofer/WakeWords-Voice-Commands-iOS-Cocoa-Pods-Sources.git',
+    :tag => s.version.to_s
+  }
 
-  s.source       = 
-    { :git => 'https://github.com/frymanofer/WakeWords-Voice-Commands-iOS-Cocoa-Pods-Sources.git', 
-    :tag => s.version.to_s }
+  # make the *bridge* the default that users get when they write
+  #   pod 'KeyWordDetection'
+  s.default_subspecs     = 'ReactBridge'
 
+  # ───── Sub-spec ① – the pure binary core ────────────────────────────
+  s.subspec 'Core' do |core|
+    core.static_framework   = true              # static XCFramework
+    core.vendored_frameworks = 'KeyWordDetection.xcframework'
 
-  # ① - Treat the binary as a *static* framework when the integrator
-  #    asks for static linkage.
-  s.static_framework = true          # ← add this
+    core.resource_bundles  = {
+      'KeyWordDetectionPrivacy' => ['ios/Resources/PrivacyInfo.xcprivacy']
+    }
+    core.resources         = 'ios/models/*'
 
-  # ② - Tell CocoaPods the binary is static so it keeps the headers
-  #     when it re-packages the pod.
+    core.dependency 'onnxruntime-objc', '~> 1.20.0'
+  end
 
-  s.swift_version       = '5.0'
+  # ───── Sub-spec ② – the React-Native bridge layer ───────────────────
+  s.subspec 'ReactBridge' do |rb|
+    # Obj-C / Obj-C++ / Swift files that talk to React-Native
+    rb.source_files        = 'ios/*.{h,m,mm,swift}'
 
-  s.resources = 'ios/models/*'
-
-  s.dependency 'onnxruntime-objc', '~> 1.20.0'
-  s.dependency 'React-Core'
-
-  # s.pod_target_xcconfig = {
-  #   'HEADER_SEARCH_PATHS' => '$(inherited) ' \
-  #     '"${PODS_ROOT}/Headers/Public/React-Core" ' \
-  #     '"${PODS_ROOT}/Headers/Private/React-Core"'
-  # }
-  
-  # flags
-  # s.pod_target_xcconfig = {
-  #   'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES'
-  # }  
-  #s.public_header_files = 'ios/KeyWordDetection/KeyWordDetection.xcframework/**/Headers/*.h'  
+    # depend on the binary *and* on React headers
+    rb.dependency 'KeyWordDetection/Core'
+    rb.dependency 'React-Core'
+    rb.dependency 'React-RCTEventEmitter'       # RN ≥ 0.72 header split
+  end
 end
