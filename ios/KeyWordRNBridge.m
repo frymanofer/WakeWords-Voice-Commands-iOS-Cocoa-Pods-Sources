@@ -1,5 +1,6 @@
 //ios/KeyWordRNBridge.mm
 
+#import <KeyWordDetection/KeyWordDetection-Swift.h>
 #import "KeyWordRNBridge.h"
 #import <React/RCTLog.h>
 // #import <React/RCTEventEmitter.h>

@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import "KeyWordDetection-Swift.h"
 #import <React/RCTEventEmitter.h>
 #import <React/RCTBridge.h>
 
