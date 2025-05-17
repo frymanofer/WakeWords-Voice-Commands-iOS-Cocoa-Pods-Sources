@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- No tracking domains -->
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+
+    <!-- API usage: Microphone -->
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryMicrophone</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>CA92.1</string> <!-- "App functionality" -->
+            </array>
+        </dict>
+    </array>
+
+    <!-- No data collection -->
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+
+    <!-- Not tracking users -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+</dict>
+</plist>
