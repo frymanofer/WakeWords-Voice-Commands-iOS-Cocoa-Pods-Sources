@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   # ─── metadata ───────────────────────────────────────────────────────
   s.name            = 'KeyWordDetection'
-  s.version         = '1.0.57'
+  s.version         = '1.0.58'
   s.summary         = 'Wake-word detection for iOS / React-Native'
   s.description     = 'Static XCFramework + optional React-Native bridge.'
   s.homepage        = 'https://github.com/frymanofer/WakeWords-Voice-Commands-iOS-Cocoa-Pods-Sources'
@@ -33,29 +33,29 @@ Pod::Spec.new do |s|
     # ← NO React deps here
   end
 
-  # ─── ReactBridge (optional) ─────────────────────────────────────────
-  s.subspec 'ReactBridge' do |rb|
-    # Obj-C / Obj-C++ bridge files
-    rb.source_files = 'ios/*.{h,m,mm}'
+  # # ─── ReactBridge (optional) ─────────────────────────────────────────
+  # s.subspec 'ReactBridge' do |rb|
+  #   # Obj-C / Obj-C++ bridge files
+  #   rb.source_files = 'ios/*.{h,m,mm}'
 
-    # Link the Swift part of the binary
-    rb.dependency 'KeyWordDetection/Core'
+  #   # Link the Swift part of the binary
+  #   rb.dependency 'KeyWordDetection/Core'
 
-    # Bring in the RN headers & libs
-    rb.dependency 'React-Core'
+  #   # Bring in the RN headers & libs
+  #   rb.dependency 'React-Core'
 
-    # That’s enough;   RCTEventEmitter.h lives **inside** React-Core
-    # include path will be <React/RCTEventEmitter.h>
+  #   # That’s enough;   RCTEventEmitter.h lives **inside** React-Core
+  #   # include path will be <React/RCTEventEmitter.h>
 
-    # Allow Swift generated headers to be found by Obj-C
-    rb.pod_target_xcconfig = {
-      'HEADER_SEARCH_PATHS' =>
-        '$(inherited) ' \
-        '"$(PODS_CONFIGURATION_BUILD_DIR)/React-Core/React_Core.framework/Headers" ' \
-        '"$(PODS_ROOT)/Headers/Private/React-Core" ' \
-        '"$(PODS_ROOT)/Headers/Public/React-Core"',   # ← add comma here
-      'DEFINES_MODULE'       => 'YES',
-      'CLANG_ENABLE_MODULES' => 'YES'
-    }
-  end
+  #   # Allow Swift generated headers to be found by Obj-C
+  #   rb.pod_target_xcconfig = {
+  #     'HEADER_SEARCH_PATHS' =>
+  #       '$(inherited) ' \
+  #       '"$(PODS_CONFIGURATION_BUILD_DIR)/React-Core/React_Core.framework/Headers" ' \
+  #       '"$(PODS_ROOT)/Headers/Private/React-Core" ' \
+  #       '"$(PODS_ROOT)/Headers/Public/React-Core"',   # ← add comma here
+  #     'DEFINES_MODULE'       => 'YES',
+  #     'CLANG_ENABLE_MODULES' => 'YES'
+  #   }
+  # end
 end
