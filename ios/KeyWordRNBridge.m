@@ -2,7 +2,7 @@
 
 #import "KeyWordRNBridge.h"
 #import <React/RCTLog.h>
-#import <React/RCTEventEmitter.h>
+// #import <React/RCTEventEmitter.h>
 //#import "KeyWordsDetection.h" // Import your KeyWordsDetection library header
 
 // Ensure the protocol is correctly imported or declared
